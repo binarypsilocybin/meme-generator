@@ -1,12 +1,16 @@
 import React from "react";
 import imageMeme from "../images/Troll Face.png"
 
-export default function Header(){
-    return(
-        <nav>
-                <img src={imageMeme} className="nav--image" alt="" />
-                <h2 className="nav--title">Meme Generator</h2>
-                <p className="nav--subtitle">React Course - Project 3</p>
-        </nav>
+export default function Header() {
+    return (
+        <header className="header">
+            <img 
+                src={imageMeme} 
+                className="header--image"
+                alt=""
+            />
+            <h2 className="header--title">Meme Generator</h2>
+            <h4 className="header--project">React Course - Project 3</h4>
+        </header>
     )
 }
