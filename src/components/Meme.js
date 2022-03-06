@@ -4,7 +4,7 @@ import memesData from "../memesData.js"
 
 
 export default function Meme() {
-    const [memeImage, setMemeImage] = useState("")
+    const [memeImage, setMemeImage] = useState("http://i.imgflip.com/1bij.jpg")
 
     function getMemes(){
         const memesArray = memesData.data.memes
