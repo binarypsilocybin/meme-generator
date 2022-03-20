@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import memesData from "../memesData.js"
 
 
-
  /**
      * Challenge: Update our state to save the meme-related
      * data as an object called `meme`. It should have the
@@ -42,7 +41,14 @@ export default function Meme() {
             randomImage: url
         }))
     }
-
+    
+    function handleChange(event){
+        const {name, value} = event.target   
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
+    }
     
     return (
         <main>
@@ -51,11 +57,17 @@ export default function Meme() {
                     type="text"
                     placeholder="Top text"
                     className="form--input"
+                    name="topText"
+                    onChange={handleChange}
+                    value={meme.topText}
                 />
                 <input 
                     type="text"
                     placeholder="Bottom text"
                     className="form--input"
+                    name="bottomText"
+                    onChange={handleChange}
+                    value={meme.bottomText}
                 />
                 <button 
                     className="form--button" onClick={getMemeImage}
@@ -63,7 +75,12 @@ export default function Meme() {
                     Get a new meme image 🖼
                 </button>
             </div>
-            <img src={meme.randomImage} className="meme--image" alt=""/>
+            <div className="meme">
+                <img src={meme.randomImage} className="meme--image" alt="" />
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            </div>
+            
         </main>
     )
 
